@@ -1,5 +1,6 @@
 title = new Title(0, 0);
 player = new Player(0, 150);
+bar = new Bar();
 
 scaleWin = 0;
 
@@ -28,6 +29,12 @@ function draw(){
   translate(-player.x, -player.y);
   title.render();
   player.update(mouseIsPressed, deltaTime);
+  translate(player.x, player.y);
+  scale(1/scaleWin);
+  translate(-width/2, -height/2);
+  scale(scaleWin);
+  bar.render();
+  bar.update(mouseX, mouseY, mouseIsPressed);
 }
 
 function windowResized(){

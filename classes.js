@@ -77,3 +77,58 @@ class Player{
   }
 
 }
+
+class Bar{
+  constructor(){
+    this.x = 0;
+    this.y = 0;
+    this.w = 60;
+    this.h = 10;
+    this.size = (10+this.h*3+10*2);
+    this.padding = 5;
+    this.clicked = false;
+    this.clickable = true;
+    this.frame = 0;
+  }
+
+  render(){
+      let space = 10;
+      for(let i = 0; i < 3; i++){
+        rect(this.padding+this.x+this.h/2, this.y+space, this.w-this.h, this.h);
+        circle(this.padding+this.x+this.h/2, this.y+space+this.h/2, 10);
+        circle(this.padding+this.x+this.w-this.h/2, this.y+space+this.h/2, 10);
+        space += 20;
+      }
+      if(this.clicked){
+        fill(0);
+        stroke(0);
+        rect(this.x, this.y, this.padding+this.w+1, min(this.size+1, this.frame));
+        stroke(255);
+        fill(255);
+        if(this.frame > this.size){
+          fill(0);
+          stroke(0);
+          rect(windowWidth/scaleWin, 0, this.size-this.frame, this.size);
+          fill(255);
+          stroke(255);
+          line(windowWidth/scaleWin, this.size, (windowWidth/scaleWin+this.size-this.frame), this.size);
+        }
+      }
+  }
+
+  update(x, y, click){
+    if(this.clickable && click && x >= 0 && y >= 0 && x <= (this.padding+this.w)*scaleWin && y <= this.size*scaleWin)
+      {
+        this.clicked = !this.clicked;
+        this.clickable = false;
+      }
+    if(this.clicked){
+      if(this.frame < this.size)
+        this.frame += 3;
+      else {
+        if(windowWidth/scaleWin+this.size-this.frame > 0)
+          this.frame *= 2;
+      }
+    }
+  }
+}
