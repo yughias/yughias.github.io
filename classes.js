@@ -116,7 +116,7 @@ class Bar{
       }
   }
 
-  update(x, y, click){
+  update(x, y, click, delta){
     if(this.clickable && click && x >= 0 && y >= 0 && x <= (this.padding+this.w)*scaleWin && y <= this.size*scaleWin)
       {
         this.clicked = !this.clicked;
@@ -124,10 +124,10 @@ class Bar{
       }
     if(this.clicked){
       if(this.frame < this.size)
-        this.frame += 3;
+        this.frame += 3*(delta/10);
       else {
         if(windowWidth/scaleWin+this.size-this.frame > 0)
-          this.frame *= 2;
+          this.frame *= 2*(delta/10);
       }
     }
   }

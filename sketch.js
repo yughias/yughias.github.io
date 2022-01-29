@@ -34,7 +34,7 @@ function draw(){
   translate(-width/2, -height/2);
   scale(scaleWin);
   bar.render();
-  bar.update(mouseX, mouseY, mouseIsPressed);
+  bar.update(mouseX, mouseY, mouseIsPressed, deltaTime);
 }
 
 function windowResized(){
