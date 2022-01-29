@@ -21,7 +21,7 @@ function setup(){
 }
 
 function draw(){
-  background(0);
+  background(200);
   translate(width/2, height/2);
   scale(scaleWin);
   player.render();
