@@ -6,6 +6,7 @@ scaleWin = 0;
 
 function preload(){
   title.load();
+  bar.load();
 }
 
 
@@ -25,20 +26,24 @@ function draw(){
   background(0);
   translate(width/2, height/2);
   scale(scaleWin);
-  player.render();
   translate(-player.x, -player.y);
   title.render();
-  player.update(mouseIsPressed, deltaTime);
   translate(player.x, player.y);
+  player.render();
+  player.update();
   scale(1/scaleWin);
   translate(-width/2, -height/2);
   scale(scaleWin);
   bar.render();
-  bar.update(mouseX, mouseY, mouseIsPressed, deltaTime);
+  bar.update();
 }
 
 function windowResized(){
   resizeCanvas(windowWidth, windowHeight);
   scaleWin = windowHeight/600;
   scaleWin *= 0.8;
+}
+
+function mouseReleased(){
+  bar.checkClick();
 }
