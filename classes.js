@@ -5,7 +5,7 @@ class Title {
   }
 
   load(){
-    this.img = loadImage('data/logo.png');
+    this.img = loadImage('logo.png');
   }
 
   render(){
@@ -93,9 +93,9 @@ class Bar{
   }
 
   load(){
-    this.discord = loadImage('data/discord.png');
-    this.github = loadImage('data/github.png');
-    this.youtube = loadImage('data/youtube.png');
+    this.discord = loadImage('discord.png');
+    this.github = loadImage('github.png');
+    this.youtube = loadImage('youtube.png');
   }
 
   render(){
