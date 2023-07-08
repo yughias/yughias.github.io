@@ -28,7 +28,6 @@ function init(){
 	startButton.addEventListener("touchend", () => simulateKey(KEY_1, "up"));
 	
 	joystick.addEventListener("touchmove", updateJoystick);
-	joystick.addEventListener("touchstart", updateJoystick);
 	joystick.addEventListener("touchend", releaseJoystick);
 }
 
