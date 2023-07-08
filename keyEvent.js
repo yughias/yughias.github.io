@@ -3,6 +3,7 @@ let coinButton;
 let startButton;
 let joystick;
 let joyLastPosition = undefined;
+let joyCenter = {x: undefined, y: undefined};
 
 const KEY_SHIFT = 16;
 const KEY_1 = 49;
@@ -27,6 +28,7 @@ function init(){
 	startButton.addEventListener("touchstart", () => simulateKey(KEY_1, "down"));
 	startButton.addEventListener("touchend", () => simulateKey(KEY_1, "up"));
 	
+	joystick.addEventListener("touchstart", setJoyCenter);
 	joystick.addEventListener("touchmove", updateJoystick);
 	joystick.addEventListener("touchend", releaseJoystick);
 }
@@ -46,15 +48,15 @@ function simulateKey (keyCode, type, modifiers) {
 	document.dispatchEvent(event);
 }
 
+function setJoyCenter(event){
+	joyCenter.x = event.touches[0].clientX;
+	joyCenter.y = event.touches[0].clientY;
+}
+
 function updateJoystick(event){
-	let joyPosition = joystick.getBoundingClientRect();
-	let center = {
-		x: joyPosition.x+joyPosition.width/2,
-		y: joyPosition.y+joyPosition.height/2
-	};
 	let vector = {
-		x: event.touches[0].clientX - center.x,
-		y: center.y - event.touches[0].clientY 
+		x: event.touches[0].clientX - joyCenter.x,
+		y: joyCenter.y - event.touches[0].clientY 
 	};
 	let angle = Math.atan2(vector.y, vector.x);
 	if(angle < 0)
