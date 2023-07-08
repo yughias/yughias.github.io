@@ -6,12 +6,15 @@
     <link rel="icon" type="image/x-icon" href="images/logo.bmp">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" href="style.css">
+    <script src="keyEvent.js"></script>
 </head>
 
-<body>
-
+<body onload="init()">
     <div id="background">
         <canvas id="canvas" oncontextmenu="event.preventDefault()"></canvas>
+        <div id="coin"></div>
+        <div id="start"></div> 
+        <div id="joystick"></div>
     </div>
 
     <script type='text/javascript'>
