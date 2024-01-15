@@ -9,13 +9,11 @@
     top: 50%;
     left: 50%;
 
-    transform: translateX(-50%) translateY(-50%);
-
     background-image: url("img/background.jpg");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
-
+    transform: translateX(-50%) translateY(-50%);
     width: min(100vw, 100vh);
     height: min(100vw, 100vh);
 }
