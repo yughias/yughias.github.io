@@ -6,9 +6,17 @@
     <link rel="icon" type="image/x-icon" href="img/logo.bmp">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" href="style.css"></style>
+    <script src="actions.js"></script>
 </head>
 
 <body>
+    <nav class="navbar">
+        <img src="img/reset.png" class="button" title="reset machine" onclick="reset()">
+        <img id="inputBtn" src="img/joystick.png" class="button" title="use joystick" onclick="useJoystick()">
+        <img id="tapeBtn" src="img/tape.png" class="button" title="load tape" onclick="loadTape()">
+        <img id="instantBtn" src="img/instant.png" class="button" title="instant load tape" onclick="instantLoadTape()">
+    </nav>
+
     <div id="crt">
         <canvas id="canvas" oncontextmenu="event.preventDefault()"></canvas>
     </div>
