@@ -59,7 +59,7 @@ function loadTape(){
 
 function stopTape(){
     let tapeBtn = document.getElementById("tapeBtn");
-    tapeBtn.title = "load tape";
+    tapeBtn.title = "load .tap";
     tapeBtn.src = "img/tape.png";
     reassignClick(tapeBtn, stopTape, loadTape);
 
@@ -93,6 +93,33 @@ function instantLoadTape(){
                 FS.createDataFile("/", "file.bin", uint8Array, true, true);
                 
                 let func = Module.cwrap("emscripten_instantLoadTape", null);
+                func();
+            };
+
+            reader.readAsArrayBuffer(file);
+        };
+    input.click();
+}
+
+function loadZ80(){
+    let input = document.createElement('input');
+    input.type = "file";
+    input.accept = ".z80";
+    input.onchange = _ => {
+            let file = input.files[0];
+            let reader = new FileReader();
+
+            reader.onload = function (e) {
+                let arrayBuffer = e.target.result;
+                let uint8Array = new Uint8Array(arrayBuffer);
+                
+                let fileInfo = FS.analyzePath("/file.bin");
+                console.log(fileInfo);
+                if(fileInfo.exists)
+                    FS.unlink("/file.bin");
+                FS.createDataFile("/", "file.bin", uint8Array, true, true);
+                
+                let func = Module.cwrap("emscripten_loadZ80", null);
                 func();
             };
 
