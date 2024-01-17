@@ -13,11 +13,13 @@
     <nav class="navbar">
         <img src="img/reset.png" class="button" title="reset machine" onclick="reset()">
         <img id="inputBtn" src="img/joystick.png" class="button" title="use joystick" onclick="useJoystick()">
-        <img id="tapeBtn" src="img/tape.png" class="button" title="load tape" onclick="loadTape()">
-        <img id="instantBtn" src="img/instant.png" class="button" title="instant load tape" onclick="instantLoadTape()">
+        <img id="tapeBtn" src="img/tape.png" class="button" title="load .tap" onclick="loadTape()">
+        <img id="instantBtn" src="img/instant.png" class="button" title="instant load .tap" onclick="instantLoadTape()">
+        <img id="z80Btn" src="img/rom.png" class="button" title="load .z80" onclick="loadZ80()">
     </nav>
 
     <div id="crt">
+        <div id="scanline"></div>
         <canvas id="canvas" oncontextmenu="event.preventDefault()"></canvas>
     </div>
     

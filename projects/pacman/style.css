@@ -18,9 +18,10 @@ canvas {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translateX(-53%) translateY(-74.2%);
+    transform: translateX(-53%) translateY(-72.8%) perspective(min(100vw, 100vh)) rotateX(-5deg);
     width: auto;
-    height: 35%;
+    height: 35.5%;
+    image-rendering: pixelated;
 }
 
 #coin {
