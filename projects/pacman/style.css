@@ -3,9 +3,10 @@
     padding: 0px;
 }
 
-#background {
+#cabinet {
+    z-index: -1;
     position: absolute;
-    background: url("images/cabinet.png") no-repeat center;
+    background: url("images/arcade.png") no-repeat center;
     background-size: contain;
     top: 50%;
     left: 50%;
@@ -14,20 +15,31 @@
     height: min(95vw, 95vh);
 }
 
+#background {
+    position: absolute;
+    background-color: black;
+    border-radius: min(1vw, 1vh);
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-58.5%);
+    width: min(40vw, 40vh);
+    height: min(37vw, 37vh);
+}
+
 canvas {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translateX(-53%) translateY(-72.8%) perspective(min(100vw, 100vh)) rotateX(-5deg);
+    transform: translateX(-50%) translateY(-58%);
     width: auto;
-    height: 35.5%;
+    height: 38.5%;
     image-rendering: pixelated;
 }
 
 #coin {
     position: absolute;
-    top: 70%;
-    left: 63.5%;
+    top: 73.5%;
+    left: 62.4%;
     width: min(7vw, 7vh);
     height: min(5vw, 5vh);
     touch-action: none;
@@ -35,19 +47,19 @@ canvas {
 
 #start {
     position: absolute;
-    top: 68.5%;
-    left: 28%;
-    width: min(7.6vw, 7.6vh);
-    height: min(7.2vw, 7.2vh);
+    top: 73.5%;
+    left: 52.5%;
+    width: min(7vw, 7vh);
+    height: min(5vw, 5vh);
     touch-action: none;
 }
 
 #joystick {
     position: absolute;
-    top: 81%;
-    left: 50%;
+    top: 83%;
+    left: 35%;
     transform: translateX(-50%) translateY(-50%);
-    width: min(25vw, 25vh);
-    height: min(40vw, 40vh);
+    width: min(32vw, 32vh);
+    height: min(32vw, 32vh);
     touch-action: none;
 }
