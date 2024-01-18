@@ -247,6 +247,7 @@ function nextMove(){
 
         gameOver = true;
         createGameOverButtons();
+        drawWinText();
       } else if(noValidMove(currentPlayer, board))
         nextMove();
     }, 500);
@@ -258,6 +259,7 @@ function nextMove(){
     if(endGame(board)){
       gameOver = true;
       createGameOverButtons();
+      drawWinText();
     } else if(noValidMove(currentPlayer, board))
       nextMove();
   }
