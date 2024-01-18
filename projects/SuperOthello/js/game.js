@@ -147,24 +147,6 @@ function drawWinText(){
   text(txt, canvas.width/2, 50);
 }
 
-function drawTimeoutText(){
-  let txt = whiteNameDOM.textContent;
-  if(blackNameDOM.className == "playing")
-    txt = blackNameDOM.textContent;
-  txt = txt + " HA ABBANDONATO!";
-  let size = Math.round(canvas.width/20);
-  ctx.font = size + "px serif";
-  ctx.fillStyle = "red";
-  text(txt, canvas.width/2, 50);
-}
-
-function drawWaitConnectionText(){
-  let size = Math.round(canvas.width/20);
-  ctx.font = size + "px serif";
-  ctx.fillStyle = "red";
-  text("RICONNESSIONE IN CORSO", canvas.width/2, 50);
-}
-
 function adjustCanvasSize(){
   let resolution = Math.min(window.innerWidth, window.innerHeight);
   resolution *= RESOLUTION_RATIO;
@@ -180,6 +162,8 @@ function renderer(){
   drawLastMove();
   drawPossibleMoves();
   drawSelectedMove();
+  if(gameOver)
+    drawWinText();
   window.requestAnimationFrame(renderer);
 }
 
@@ -247,7 +231,6 @@ function nextMove(){
 
         gameOver = true;
         createGameOverButtons();
-        drawWinText();
       } else if(noValidMove(currentPlayer, board))
         nextMove();
     }, 500);
@@ -259,7 +242,6 @@ function nextMove(){
     if(endGame(board)){
       gameOver = true;
       createGameOverButtons();
-      drawWinText();
     } else if(noValidMove(currentPlayer, board))
       nextMove();
   }
