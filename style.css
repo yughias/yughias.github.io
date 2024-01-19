@@ -113,6 +113,6 @@
 /* laptop */
 @media (min-aspect-ratio: 1/1) {
     .slide-icon {
-        width: 5vw;
+        width: 4vw;
     }    
 }
