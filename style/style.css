@@ -2,7 +2,8 @@ body {
     margin: 0px;
 }
 
-footer * {
+footer {
+    font-size: smaller;
     margin: 0px;
     padding: 0.5%;
     background-color: black;
