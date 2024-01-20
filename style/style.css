@@ -1,3 +1,15 @@
+body {
+    margin: 0px;
+}
+
+footer * {
+    margin: 0px;
+    padding: 0.5%;
+    background-color: black;
+    text-align: center;
+    color: white;
+}
+
 .title {
     font-family: monospace;
     text-align: center;
@@ -17,6 +29,7 @@
 }
 
 .slide {
+    background-color: white;
     border: 1px solid black;
     display: flex;
     flex-direction: column;
@@ -118,3 +131,11 @@
         width: 4vw;
     }    
 }
+
+.background {
+    position: fixed;
+    z-index: -1;
+    top: 0%;
+    left: 0%;
+}
+
