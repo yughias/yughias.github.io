@@ -17,10 +17,10 @@
     left: 0px;
     margin-left: 5vw;
     margin-right: 5vw;
-    margin-top: 5vh;
-    margin-bottom: 5vh;
+    margin-top: 15vh;
+    margin-bottom: 15vh;
     width: 90vw;
-    height: 90vh;
+    height: 70vh;
     border-radius: 20px;
     background-color: antiquewhite;
     animation-name: appearAnimation;

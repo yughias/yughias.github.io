@@ -8,12 +8,12 @@
 }
 
 .game-container {
-        display: none;
-        position: relative;
-        flex-direction: row;
-        justify-content: center;
-        animation-name: appearAnimation;
-        animation-duration: 1s;
+    display: none;
+    position: relative;
+    flex-direction: row;
+    justify-content: center;
+    animation-name: appearAnimation;
+    animation-duration: 1s;
 }
 
 .stats {
