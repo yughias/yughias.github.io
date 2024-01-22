@@ -1,0 +1,53 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+@font-face {
+    font-family: 'monoFont'; 
+    src: url('../font/404.otf');
+}
+
+.container {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    display: inline;
+    font-size: min(30vh, 30vw);
+    font-family: 'monoFont';
+}
+
+.slow-animate {
+    animation: animation 0.5s forwards;
+    animation-iteration-count: 1;
+}
+
+.fast-animate {
+    animation: animation 0.2s forwards;
+    animation-iteration-count: 1;
+}
+
+@keyframes animation {
+    0% {
+      transform: translateY(0%);
+      opacity: 1; 
+    }
+    50% {
+      transform: translateY(-100%); 
+      opacity: 0; 
+    }
+    51% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
