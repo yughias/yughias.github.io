@@ -322,20 +322,19 @@ function createGameOverButtons(){
   createHomeReturnButton();
   let div = document.getElementsByClassName("actionButton-container")[0];
   let replayBtn = document.createElement("button");
+  let gameDiv = document.getElementById("gameDiv");
   replayBtn.textContent = "Gioca di nuovo";
   replayBtn.className = "actionButton";
   replayBtn.addEventListener("click", playAgain);
   div.appendChild(replayBtn);
 
-  body.appendChild(div);
+  gameDiv.appendChild(div);
 }
 
 function createHomeReturnButton(){
-  if(document.getElementsByClassName("actionButton-container").length == 1)
+  let div = document.getElementsByClassName("actionButton-container")[0];
+  if(div.childElementCount != 0)
     return;
-
-  let div = document.createElement("div");
-  div.className = "actionButton-container";
 
   let homeBtn = document.createElement("button");
   homeBtn.textContent = "Menù";
