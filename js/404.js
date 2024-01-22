@@ -2,7 +2,7 @@ let counter = 0;
 
 let text = [];
 
-const MS = 20;
+const MS = 10;
 
 function init(){
     setTimeout(tickFunction, MS);  
