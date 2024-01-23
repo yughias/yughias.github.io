@@ -350,8 +350,11 @@ function returnToHome(){
 }
 
 function playAgain(){
-  let buttons = document.getElementsByClassName("actionButton-container")[0];
-  buttons.remove();
+  let buttons = document.getElementsByClassName("actionButton");
+  while(buttons.length != 0){
+    let btn = buttons.item(0);
+    btn.remove();
+  }
   newGame(gameMode);
 }
 
