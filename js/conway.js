@@ -5,16 +5,18 @@ let y;
 let alive = [];
 let new_alive = [];
 const SPAWN_PROBABILITY = 0.4; 
-const CELL_SIZE = 30;
+const CELL_SIZE = 15;
+const STROKE_WEIGHT = 2;
+const FRAME_RATE = 2;
 
 function setup(){
     ctx = createCanvas(windowWidth, windowHeight);
     ctx.addClass("background");
     createMatrix();
-    strokeWeight(5);
+    strokeWeight(STROKE_WEIGHT);
     stroke("white");
 
-    frameRate(2);
+    frameRate(FRAME_RATE);
     pixelDensity(1);
 }
 
