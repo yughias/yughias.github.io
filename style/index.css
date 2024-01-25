@@ -39,7 +39,7 @@ footer {
     margin: 2%;
     border-radius: 3vh;
     transition-property: transform box-shadow;
-    transition-duration: 0.3s;
+    transition-duration: 0.4s;
     transition-timing-function: ease;
 }
 
