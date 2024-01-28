@@ -5,12 +5,22 @@ let joystick;
 let joyLastPosition = undefined;
 let joyCenter = {x: undefined, y: undefined};
 
+const KEY_ENTER = 13;
 const KEY_SHIFT = 16;
-const KEY_1 = 49;
 const KEY_LEFT = 37;
 const KEY_UP = 38;
 const KEY_RIGHT = 39;
 const KEY_DOWN = 40;
+const games = [
+	["PACMAN", "pacman"],
+	["MS PACMAN", "mspacman"],
+	["PACMAN FAST", "pacmanf"],
+	["MS PACMAN FAST", "mspacmnf"],
+	["PACMAN HARDER", "pacmod"],
+	["PACMAN PLUS", "pacplus"]
+];
+
+let currentGame = 0;
 
 function init(){
     canvas = document.getElementById("canvas");
@@ -20,13 +30,13 @@ function init(){
 
 	coinButton.addEventListener("mousedown", () => simulateKey(KEY_SHIFT, "down"));
 	coinButton.addEventListener("mouseup", () => simulateKey(KEY_SHIFT, "up"));
-	startButton.addEventListener("mousedown", () => simulateKey(KEY_1, "down"));
-	startButton.addEventListener("mouseup", () => simulateKey(KEY_1, "up"));
+	startButton.addEventListener("mousedown", () => simulateKey(KEY_ENTER, "down"));
+	startButton.addEventListener("mouseup", () => simulateKey(KEY_ENTER, "up"));
 	
 	coinButton.addEventListener("touchstart", () => simulateKey(KEY_SHIFT, "down"));
 	coinButton.addEventListener("touchend", () => simulateKey(KEY_SHIFT, "up"));
-	startButton.addEventListener("touchstart", () => simulateKey(KEY_1, "down"));
-	startButton.addEventListener("touchend", () => simulateKey(KEY_1, "up"));
+	startButton.addEventListener("touchstart", () => simulateKey(KEY_ENTER, "down"));
+	startButton.addEventListener("touchend", () => simulateKey(KEY_ENTER, "up"));
 	
 	joystick.addEventListener("touchstart", setJoyCenter);
 	joystick.addEventListener("touchmove", updateJoystick);
@@ -83,4 +93,21 @@ function updateJoystick(event){
 function releaseJoystick(event){
 	simulateKey(joyLastPosition, "up");
 	joyLastPosition = undefined;
+}
+
+function loadNextGame(){
+	currentGame = (currentGame + 1) % games.length;
+	loadGame();
+}
+
+
+function loadPrevGame(){
+	currentGame = (currentGame + (games.length - 1)) % games.length;
+	loadGame();
+}
+
+function loadGame(){
+	let title = document.getElementById("game-name");
+	title.textContent = games[currentGame][0];
+	Module._loadGame(stringToNewUTF8(games[currentGame][1]));
 }
