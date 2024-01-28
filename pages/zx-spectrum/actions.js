@@ -1,13 +1,10 @@
 function reset(){
-    let func = Module.cwrap('emscripten_resetEmulation');
-    func();
-
+    Module._emscripten_resetEmulation();
     stopTape();
 }
 
 function useJoystick(){
-    let func = Module.cwrap('frontend_useKempston');
-    func();
+    Module._frontend_useKempston();
 
     let button = document.getElementById("inputBtn");
     reassignClick(button, useJoystick, useKeyboard);
@@ -16,8 +13,7 @@ function useJoystick(){
 }
 
 function useKeyboard(){
-    let func = Module.cwrap('frontend_useKeyboard');
-    func();
+    Module._frontend_useKeyboard();
 
     let button = document.getElementById("inputBtn");
     reassignClick(button, useKeyboard, useJoystick);
@@ -43,8 +39,7 @@ function loadTape(){
                     FS.unlink("/file.bin");
                 FS.createDataFile("/", "file.bin", uint8Array, true, true);
                 
-                let func = Module.cwrap("emscripten_loadTape", null);
-                func();
+                Module._emscripten_loadTape();
                 
                 let tapeBtn = document.getElementById("tapeBtn");
                 tapeBtn.title = "stop tape";
@@ -62,10 +57,7 @@ function stopTape(){
     tapeBtn.title = "load .tap";
     tapeBtn.src = "img/tape.png";
     reassignClick(tapeBtn, stopTape, loadTape);
-
-
-    let func = Module.cwrap("stopTape", null);
-    func();
+    Module._stopTape();
 }
 
 function reassignClick(dom, oldFunc, newFunc){
@@ -92,8 +84,7 @@ function instantLoadTape(){
                     FS.unlink("/file.bin");
                 FS.createDataFile("/", "file.bin", uint8Array, true, true);
                 
-                let func = Module.cwrap("emscripten_instantLoadTape", null);
-                func();
+                Module._emscripten_instantLoadTape();
             };
 
             reader.readAsArrayBuffer(file);
@@ -119,8 +110,7 @@ function loadZ80(){
                     FS.unlink("/file.bin");
                 FS.createDataFile("/", "file.bin", uint8Array, true, true);
                 
-                let func = Module.cwrap("emscripten_loadZ80", null);
-                func();
+                Module._emscripten_loadZ80();
             };
 
             reader.readAsArrayBuffer(file);

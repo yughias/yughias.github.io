@@ -6,10 +6,16 @@
     <link rel="icon" type="image/x-icon" href="images/logo.bmp">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" href="style.css">
-    <script src="keyEvent.js"></script>
+    <script src="actions.js"></script>
 </head>
 
 <body onload="init()">
+    <nav class="navbar">
+        <img id="left-arrow" class="arrow" src="img/left-arrow.png" onclick="loadPrevGame()">
+        <h1 id="game-name">PACMAN</h1>
+        <img id="right-arrow" class="arrow" src="img/right-arrow.png" onclick="loadNextGame()"> 
+    </nav>
+
     <div id="cabinet">
         <div id="background"></div>
         <canvas id="canvas" oncontextmenu="event.preventDefault()"></canvas>
