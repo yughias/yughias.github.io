@@ -13,7 +13,7 @@
 <body>
     <h1 class="title">yughiasちゃん</h1>
     <div class="github-profile">
-        <a href="http://www.github.com/yughias">
+        <a href="http://www.github.com/yughias" title="github profile">
             <img src="img/github-mark.svg" alt="github page"></img>
         </a>
     </div>
@@ -30,13 +30,13 @@
                 </p>
                 <div class="inner-flex">  
                     <div>  
-                        <a href="/pages/SuperOthello/index.html">
+                        <a href="/pages/SuperOthello/index.html" title="project demo without online mode">
                             <img class="slide-icon" src="img/demo.png"></img>
                         </a>
-                        </div>
+                    </div>
                     
-                        <div>
-                        <a href="https://github.com/yughias/SuperOthello">
+                    <div>
+                        <a href="https://github.com/yughias/SuperOthello" title="github repo">
                             <img class="slide-icon" src="img/github-mark.svg"></img>
                         </a>
                     </div>
@@ -53,13 +53,13 @@
             </p>
             <div class="inner-flex">  
                 <div>  
-                    <a href="/pages/zx-spectrum/index.html">
+                    <a href="/pages/zx-spectrum/index.html" title="emscripten based demo">
                         <img class="slide-icon" src="img/demo.png"></img>
                     </a>
-                    </div>
+                </div>
                 
-                    <div>
-                    <a href="https://github.com/yughias/zx-48k-emulator">
+                <div>
+                    <a href="https://github.com/yughias/zx-48k-emulator" title="github repo">
                         <img class="slide-icon" src="img/github-mark.svg"></img>
                     </a>
                 </div>
@@ -70,18 +70,88 @@
             <h2 class="slide-title">Pacman Arcade</h2>
             <img id="pac-img" class="slide-img" src="img/pacman.png">
             <p class="slide-text">
-                An emulator for pacman arcade and some of
-                its clone!
+                An emulator for pacman cabinet and some of
+                its clone! Main board consists of:
             </p>
+            <ul class="slide-list">
+                <li>Z80 Cpu</li>
+                <li>Namco Wave Sound Generator</li>
+                <li>Tile based background</li>
+                <li>Hardware sprites</li>
+            </ul>
             <div class="inner-flex">  
                 <div>  
-                    <a href="/pages/pacman/index.html">
+                    <a href="/pages/pacman/index.html" title="emscripten based demo">
                         <img class="slide-icon" src="img/demo.png"></img>
                     </a>
-                    </div>
+                </div>
                 
-                    <div>
-                    <a href="https://github.com/yughias/pacman-emulator">
+                <div>
+                    <a href="https://github.com/yughias/pacman-emulator" title="github repo">
+                        <img class="slide-icon" src="img/github-mark.svg"></img>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <h2 class="slide-title">Space Invaders</h2>
+            <img id="invaders-img" class="slide-img" src="img/invaders.png">
+            <p class="slide-text">
+                An emulator of the Midway 8080 Cabinet. At the moment
+                only Space Invaders is supported. Main board consists of:
+            </p>
+            <ul class="slide-list">
+                <li>Intel 8080 Cpu</li>
+                <li>Bitmap black and white display</li>
+                <li>A couple of fixed sound</li>
+            </ul>
+            <div class="inner-flex">  
+                <div>
+                    <a href="https://github.com/yughias/space-invaders-emulator" title="github repo">
+                        <img class="slide-icon" src="img/github-mark.svg"></img>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <h2 class="slide-title">エミュボーイ</h2>
+            <img id="gameboy-img" class="slide-img" src="img/gameboy.png">
+            <p class="slide-text">
+                A simple GameBoy emulator.
+                This projects is not finished but it can emulate almost most of the games.
+            </p>
+            <ul class="slide-list">
+                <li>Accurate interrupt emulation</li>
+                <li>Cycle accurate cpu core</li>
+                <li>Basic support of link cable via LAN</li>
+                <li>support for .sav files</li>
+                <li class="hidden-list">
+                    <details>
+                    <summary>A large variety of MBCs supported</summary>
+                    <ul>
+                        <li>MBC1</li>
+                        <li>MBC2</li>
+                        <li>MBC3</li>
+                        <li>MBC5</li>
+                        <li>MMM01</li>
+                        <li>M161</li>
+                        <li>MBC1M</li>
+                    </ul>
+                    </details>
+                </il>
+            </ul>
+            
+            <div class="inner-flex">  
+                <div>
+                    <a href="https://github.com/yughias/EmuBoy/releases/tag/v1.0" title="download .exe">
+                        <img class="slide-icon" src="img/download.png"></img>
+                    </a>
+                </div>
+                
+                <div>
+                    <a href="https://github.com/yughias/emuboy" title="github repo">
                         <img class="slide-icon" src="img/github-mark.svg"></img>
                     </a>
                 </div>
