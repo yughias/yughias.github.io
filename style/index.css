@@ -38,7 +38,7 @@ footer {
     width: 40%;
     margin: 2%;
     border-radius: 3vh;
-    transition-property: transform box-shadow;
+    transition-property: transform;
     transition-duration: 0.4s;
     transition-timing-function: ease;
 }
@@ -48,7 +48,7 @@ footer {
     .slide {
         min-width: 80vw;
         margin-top: 5%;
-        margin-top: 5%;
+        margin-bottom: 5%;
     }    
 }
 
