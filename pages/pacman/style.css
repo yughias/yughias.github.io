@@ -90,3 +90,27 @@ canvas {
     height: 3vh;
     cursor: pointer;
 }
+
+.animated {
+    animation-name: game-name-animation;
+    animation-duration: 1s;
+}
+
+@keyframes game-name-animation {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    50% {
+        opacity: 0;
+        transform: translateX(-50%);
+    }
+    51% {
+        opacity: 0;
+        transform: translateX(50%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
