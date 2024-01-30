@@ -97,17 +97,21 @@ function releaseJoystick(event){
 
 function loadNextGame(){
 	currentGame = (currentGame + 1) % games.length;
-	loadGame();
+	loadGame("forward");
 }
 
 
 function loadPrevGame(){
 	currentGame = (currentGame + (games.length - 1)) % games.length;
-	loadGame();
+	loadGame("reverse");
 }
 
-function loadGame(){
+function loadGame(direction){
 	let title = document.getElementById("game-name");
-	title.textContent = games[currentGame][0];
+	title.className = "animated";
+	title.style.animationDirection = direction;
+	setTimeout(() => title.textContent = games[currentGame][0], 510);
+	setTimeout(() => title.className = "", 1010);
+
 	Module._loadGame(stringToNewUTF8(games[currentGame][1]));
 }
