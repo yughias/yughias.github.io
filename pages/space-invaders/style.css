@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.overlay {
+    z-index: 2;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vmin;
+    height: 100vmin;
+    background: url("img/overlay.png") no-repeat center;
+    background-size: contain;
+}
+
+.background {
+    z-index: 0;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 70vmin;
+    height: 55vmin;
+    transform: translate(-50%, -50%);
+    background-color: black;
+}
+
+canvas {
+    z-index: 1;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 41vmin;
+    transform: translate(-50%, -54%);
+    image-rendering: pixelated;
+}
+
+nav {
+    z-index: 10;
+    position: fixed;
+    width: 100vw;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 7vh;
+    border: 1px solid black;
+}
+
+nav img {
+    display: block;
+    height: 5vh;
+    padding: 1vh 2vw 1vh 2vw;
+    transition: transform 0.5s ease;
+}
+
+nav img:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+#left {
+    z-index: 5;
+    position: fixed;
+    top: 8vh;
+    left: 0%;
+    width: 33dvw;
+    height: 93dvh;
+    touch-action: manipulation;
+}
+
+#center {
+    z-index: 5;
+    position: fixed;
+    top: 8vh;
+    left: 33dvw;
+    width: 35dvw;
+    height: 93dvh;
+    touch-action: manipulation;
+}
+
+#right {
+    z-index: 5;
+    position: fixed;
+    top: 8vh;
+    left: 68dvw;
+    width: 33dvw;
+    height: 93dvh;
+    touch-action: manipulation;
+}
