@@ -97,7 +97,7 @@ function releaseJoystick(event){
 
 function loadNextGame(){
 	currentGame = (currentGame + 1) % games.length;
-	loadGame("forward");
+	loadGame("normal");
 }
 
 
@@ -108,8 +108,8 @@ function loadPrevGame(){
 
 function loadGame(direction){
 	let title = document.getElementById("game-name");
-	title.className = "animated";
 	title.style.animationDirection = direction;
+	title.className = "animated";
 	setTimeout(() => title.textContent = games[currentGame][0], 510);
 	setTimeout(() => title.className = "", 1010);
 
