@@ -72,10 +72,10 @@
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-26vmin, 8vmin);
+    transform: translate(-26.5vmin, 7.5vmin);
 
-    width: 19vmin;
-    height: 19vmin;
+    width: 20vmin;
+    height: 20vmin;
 }
 
 
@@ -151,4 +151,17 @@
     cursor: pointer;
     width: 16vmin;
     height: 16vmin;
+}
+
+.no-zoom {
+    z-index: 1;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-30vmin, -10vmin);
+
+    width: 60vmin;
+    height: 60vmin;
+
+    touch-action: none;
 }
