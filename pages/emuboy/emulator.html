@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="icon" href="img/icon.png">
+    <script src="actions.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="init()">
+    <div class="overlay"></div>
+    <div class="green-screen"></div> 
+    <div class="cartridge" onclick="loadGame()" title="select game"></div>
+    <div id="led"></div>
+    <div class="button" id="dpad"></div>
+    <div class="button" id="a-btn"></div>
+    <div class="button" id="b-btn"></div>
+    <div class="button" id="start-btn"></div>
+    <div class="button" id="select-btn"></div>
+
+    <canvas id="canvas" oncontextmenu="event.preventDefault()"></canvas>
+
+    <script type='text/javascript'>
+        var Module = {
+            canvas: (function() { return document.getElementById('canvas'); })()
+        };
+    </script>
+    <script src="emulator.js"></script>
+</body>
+
+</html>

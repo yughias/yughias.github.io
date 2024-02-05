@@ -1,0 +1,154 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.overlay {
+    z-index: 0;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 95vmin;
+    min-height: 95vmin;
+
+    transform: translate(-50%, -50%);
+
+    background-image: url("img/overlay.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.green-screen {
+    z-index: 1;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-48.7%, -122.2%);
+
+    width: 32.4vmin;
+    height: 29.3vmin;
+    border-radius: 1vmin;
+    background-color:rgb(123, 129, 17);
+}
+
+#canvas {
+    z-index: 2;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-49%, -122.3%);
+
+    width: 32.5vmin;
+    border-radius: 1vmin;
+
+    image-rendering: pixelated;
+}
+
+#led {
+    z-index: 2;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-21.3vmin, -26.5vmin);
+
+    width: 2vmin;
+    height: 2vmin;
+
+    border-radius: 50%;
+    box-shadow: 0px 0px 2.5vmin 0.5vmin red;
+
+    background: radial-gradient(chocolate, brown, crimson);
+
+    opacity: 0;
+    
+    transition-property: opacity;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in;
+}
+
+#dpad {
+    z-index: 2;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-26vmin, 8vmin);
+
+    width: 19vmin;
+    height: 19vmin;
+}
+
+
+#a-btn {
+    z-index: 2;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: rotate(-20deg) translate(12.6vmin, 14.5vmin);
+
+    width: 10vmin;
+    height: 10vmin;
+}
+
+#b-btn {
+    z-index: 2;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: rotate(-20deg) translate(2.5vmin, 14.5vmin);
+
+    width: 10vmin;
+    height: 10vmin;
+}
+
+#select-btn {
+    z-index: 2;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: rotate(-25deg) translate(-23.5vmin, 22vmin);
+
+    width: 9vmin;
+    height: 3vmin;
+}
+
+#start-btn {
+    z-index: 2;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: rotate(-25deg) translate(-14.5vmin, 26.2vmin);
+
+    width: 9vmin;
+    height: 3vmin;
+}
+
+.button {
+    touch-action: none;
+}
+
+.cartridge {
+    position: fixed;
+    z-index: 10;
+    top: 10vmin;
+    left: 10vmin;
+    width: 13vmin;
+    height: 13vmin;
+    
+    transform: translate(-50%, -50%);
+
+    background-image: url("img/cartridge.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    transition-property: width, height;
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
+}
+
+.cartridge:hover {
+    cursor: pointer;
+    width: 16vmin;
+    height: 16vmin;
+}
