@@ -85,23 +85,26 @@ function simulateKey (keyCode, type, modifiers) {
 }
 
 function updateDpad(event){
+    const DPAD_DEADZONE = 0.2;
     let dpad = document.getElementById("dpad");
     let dpadRect = dpad.getBoundingClientRect();
 
 	let x = (event.touches[0].clientX - dpadRect.left) - (dpad.clientWidth / 2);
     let y = -(event.touches[0].clientY - dpadRect.top) + (dpad.clientHeight / 2);
-    x /= dpad.clientWidth;
-    y /= dpad.clientHeight;
+    x /= dpad.clientWidth / 2;
+    y /= dpad.clientHeight / 2;
 
-    if(x > -0.20 && x < 0.20)
+    if(x > -DPAD_DEADZONE && x < DPAD_DEADZONE)
         x = 0;
     else
         x /= Math.abs(x);
     
-    if(y > -0.20 && y < 0.20)
+    if(y > -DPAD_DEADZONE && y < DPAD_DEADZONE)
         y = 0;
     else
         y /= Math.abs(y);
+
+    console.log(x, y);
 	
     if(x != lastDpadValue[0]){
         if(lastDpadValue[0] == 1)
