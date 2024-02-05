@@ -93,12 +93,12 @@ function updateDpad(event){
     x /= dpad.clientWidth;
     y /= dpad.clientHeight;
 
-    if(x > -0.25 && x < 0.25)
+    if(x > -0.20 && x < 0.20)
         x = 0;
     else
         x /= Math.abs(x);
     
-    if(y > -0.25 && y < 0.25)
+    if(y > -0.20 && y < 0.20)
         y = 0;
     else
         y /= Math.abs(y);
