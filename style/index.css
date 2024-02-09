@@ -3,13 +3,24 @@ body {
 }
 
 footer {
+    display: flex;
     font-size: smaller;
-    margin: 0px;
-    padding: 0.5%;
     background-color: black;
     text-align: center;
     color: white;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
+
+footer div {
+    margin-top: 0.6%;
+    margin-bottom: 0.5%;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+
 
 .title {
     font-family: monospace;
