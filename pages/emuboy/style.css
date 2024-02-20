@@ -42,7 +42,7 @@
     width: 32.5vmin;
     border-radius: 1vmin;
 
-    image-rendering: pixelated;
+    image-rendering: crisp-edges;
 }
 
 #led {
