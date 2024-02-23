@@ -13,7 +13,7 @@
 
     transform: translate(-50%, -50%);
 
-    background-image: url("img/overlay.png");
+    background-image: url("img/dmg-overlay.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -67,9 +67,13 @@
     transition-timing-function: ease-in;
 }
 
-#dpad {
+.button {
     z-index: 2;
     position: fixed;
+    touch-action: none;
+}
+
+#dpad {
     top: 50%;
     left: 50%;
     transform: translate(-26.5vmin, 7.5vmin);
@@ -80,8 +84,6 @@
 
 
 #a-btn {
-    z-index: 2;
-    position: fixed;
     top: 50%;
     left: 50%;
     transform: rotate(-20deg) translate(12.6vmin, 14.5vmin);
@@ -91,8 +93,6 @@
 }
 
 #b-btn {
-    z-index: 2;
-    position: fixed;
     top: 50%;
     left: 50%;
     transform: rotate(-20deg) translate(2.5vmin, 14.5vmin);
@@ -102,8 +102,6 @@
 }
 
 #select-btn {
-    z-index: 2;
-    position: fixed;
     top: 50%;
     left: 50%;
     transform: rotate(-25deg) translate(-23.5vmin, 22vmin);
@@ -113,18 +111,12 @@
 }
 
 #start-btn {
-    z-index: 2;
-    position: fixed;
     top: 50%;
     left: 50%;
     transform: rotate(-25deg) translate(-14.5vmin, 26.2vmin);
 
     width: 9vmin;
     height: 3vmin;
-}
-
-.button {
-    touch-action: none;
 }
 
 .cartridge {
@@ -137,7 +129,7 @@
     
     transform: translate(-50%, -50%);
 
-    background-image: url("img/cartridge.png");
+    background-image: url("img/dmg-cartridge.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
