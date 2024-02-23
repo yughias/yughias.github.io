@@ -38,17 +38,25 @@ function init(){
 function loadGame(){
     let input = document.createElement('input');
     input.type = "file";
-    input.accept = ".gb";
+    input.accept = [".gb", ".gbc", ".bin", ".md1", ".md2"];
     input.onchange = _ => {
             let file = input.files[0];
             let reader = new FileReader();
 
             reader.onload = function (e) {
+                let ext = file.name.split('.').pop();
+                
+                if(["gb", "gbc"].includes(ext))
+                    loadCss("dmg");
+
+                if(["bin", "md1", "md2"].includes(ext))
+                    loadCss("megaduck");
+
+
                 let arrayBuffer = e.target.result;
                 let uint8Array = new Uint8Array(arrayBuffer);
                 
                 let fileInfo = FS.analyzePath("/rom.gb");
-                console.log(fileInfo);
                 if(fileInfo.exists)
                     FS.unlink("/rom.gb");
                 FS.createDataFile("/", "rom.gb", uint8Array, true, true);
@@ -103,8 +111,6 @@ function updateDpad(event){
         y = 0;
     else
         y /= Math.abs(y);
-
-    console.log(x, y);
 	
     if(x != lastDpadValue[0]){
         if(lastDpadValue[0] == 1)
@@ -137,4 +143,9 @@ function releaseDpad(event){
     simulateKey(KEY_DOWN, "up");
     simulateKey(KEY_RIGHT, "up");
     lastDpadValue = [0, 0];
+}
+
+function loadCss(css_name){
+    let linkCSS = document.getElementById("linkCSS");
+    linkCSS.href = css_name + ".css";
 }
