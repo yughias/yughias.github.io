@@ -44,17 +44,24 @@ function loadGame(){
             let reader = new FileReader();
 
             reader.onload = function (e) {
+                let arrayBuffer = e.target.result;
+                let uint8Array = new Uint8Array(arrayBuffer);
                 let ext = file.name.split('.').pop();
+                let colorizeBtn = document.getElementById("colorizeBtn");
                 
-                if(["gb", "gbc"].includes(ext))
-                    loadCss("dmg");
+                if(["gb", "gbc"].includes(ext)){
+                    if(uint8Array[0x143] < 0x80){
+                        loadCss("dmg");
+                        colorizeBtn.style.display = "inline";
+                        colorizeBtn.className = "colorizeCgb";
+                    } else {
+                        colorizeBtn.style.display = "none";
+                        loadCss("cgb");
+                    }
+                }
 
                 if(["bin", "md1", "md2"].includes(ext))
                     loadCss("megaduck");
-
-
-                let arrayBuffer = e.target.result;
-                let uint8Array = new Uint8Array(arrayBuffer);
                 
                 let fileInfo = FS.analyzePath("/rom.gb");
                 if(fileInfo.exists)
@@ -147,5 +154,17 @@ function releaseDpad(event){
 
 function loadCss(css_name){
     let linkCSS = document.getElementById("linkCSS");
-    linkCSS.href = css_name + ".css";
+    linkCSS.href = "style/" + css_name + ".css";
+}
+
+function switchToCgb(){
+    let btn = document.getElementById("colorizeBtn");
+    if(btn.className == "colorizeDmg"){
+        btn.className = "colorizeCgb";
+        loadCss("dmg");
+    } else {
+        btn.className = "colorizeDmg";
+        loadCss("cgb");
+    }
+    Module._switchCompatibilityMode();
 }
