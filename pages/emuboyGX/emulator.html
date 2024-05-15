@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="icon" href="img/logo.ico">
+    <script src="actions.js"></script>
+    <link id="linkCSS" rel="stylesheet" href="style/gba.css">
+</head>
+
+<body onload="init()">
+    <div class="cartridge" onclick="loadGame()" title="select game"></div>
+
+    
+    <div id="gba"> 
+        <div class="overlay"></div> 
+        <div class="no-zoom"></div>
+        <div class="button" id="dpad"></div>
+        <div class="button" id="a-btn"></div>
+        <div class="button" id="b-btn"></div>
+        <div class="button" id="l-btn"></div>
+        <div class="button" id="r-btn"></div>
+        <div class="button" id="start-btn"></div>
+        <div class="button" id="select-btn"></div>
+        <canvas id="canvas"></canvas>
+    </div>
+
+    <script type='text/javascript'>
+        var Module = {
+            canvas: (function() { return document.getElementById('canvas'); })()
+        };
+    </script>
+    <script src="emulator.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,212 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+#gba {
+    display: none;
+}
+
+.overlay {
+    z-index: 0;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 95vmin;
+    min-height: 95vmin;
+
+    transform: translate(-50%, -50%);
+
+    background-image: url("../img/overlay.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+} 
+
+#canvas {
+    z-index: 2;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-20.5vmin, -16.8vmin);
+
+    width: 42vmin;
+    border-radius: 1vmin;
+
+    image-rendering: pixelated;
+}
+
+.button {
+    z-index: 2;
+    position: fixed;
+    touch-action: none;
+}
+
+#dpad {
+    top: 50%;
+    left: 50%;
+    transform: translate(-44vmin, -14.5vmin);
+
+    width: 19vmin;
+    height: 19vmin;
+}
+
+
+#a-btn {
+    top: 50%;
+    left: 50%;
+    transform: translate(35vmin, -10.3vmin);
+
+    width: 8.5vmin;
+    height: 8.5vmin;
+}
+
+#b-btn {
+    top: 50%;
+    left: 50%;
+    transform: translate(26vmin, -8vmin);
+
+    width: 8.5vmin;
+    height: 8.5vmin;
+}
+
+#l-btn {
+    top: 50%;
+    left: 50%;
+    transform: translate(-45vmin, -26vmin);
+
+    width: 24vmin;
+    height: 9vmin;
+}
+
+#r-btn {
+    top: 50%;
+    left: 50%;
+    transform: translate(21vmin, -26vmin);
+
+    width: 24vmin;
+    height: 9vmin;
+}
+
+#start-btn {
+    top: 50%;
+    left: 50%;
+    transform: translate(-35.7vmin, 6vmin) rotate(15deg);
+
+    width: 9.5vmin;
+    height: 3.5vmin;
+}
+
+#select-btn {
+    top: 50%;
+    left: 50%;
+    transform: translate(-35.7vmin, 11.3vmin) rotate(15deg);
+
+    width: 9.5vmin;
+    height: 3.5vmin;
+}
+
+.cartridge {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 13vmin;
+    height: 13vmin;
+    
+    transform: translate(-50%, -50%);
+
+    background-image: url("../img/cartridge.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    transition-property: width, height;
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
+}
+
+.cartridge:hover {
+    cursor: pointer;
+    width: 16vmin;
+    height: 16vmin;
+}
+
+.no-zoom {
+    z-index: 1;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 95vmin;
+    height: 55vmin;
+
+    touch-action: none;
+}
+
+@media (max-aspect-ratio: 1/1){
+    .overlay {
+        background-image: url("../img/gbasp.png");
+        height: 100vh;
+        background-position: center;
+    }
+
+    .no-zoom {
+        height: 100vh;
+        width: 50vh;
+    }
+
+    #canvas {
+        transform: translate(-21vh, -40vh);
+        border-radius: 1vh;
+        width: 42.5vh;
+    }
+
+    #a-btn {
+        transform: translate(12vh, 17.3vh);
+        width: 7.5vh;
+        height: 7.5vh;
+    }
+
+    #b-btn {
+        transform: translate(3.3vh, 19.3vh);
+        width: 7.5vh;
+        height: 7.5vh;
+    }
+
+    #dpad {
+        transform: translate(-20vh, 15.3vh);
+        width: 17.8vh;
+        height: 17.8vh;
+    }
+
+    #l-btn {
+        transform: translate(-23vh, 1vh);
+        width: 18vh;
+        height: 12vh;
+    }
+
+    #r-btn {
+        transform: translate(5vh, 1vh);
+        width: 18vh;
+        height: 12vh;
+    }
+
+    #start-btn {
+        top: 50%;
+        left: 50%;
+        transform: translate(1.5vh, 40.5vh);
+    
+        width: 6vh;
+        height: 6vh;
+    }
+    
+    #select-btn {
+        top: 50%;
+        left: 50%;
+        transform: translate(-7.5vh, 40.5vh);
+    
+        width: 6vh;
+        height: 6vh;
+    }
+}
