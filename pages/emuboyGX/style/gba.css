@@ -40,6 +40,7 @@
     z-index: 2;
     position: fixed;
     touch-action: none;
+    background-color: aquamarine;
 }
 
 #dpad {

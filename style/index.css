@@ -134,6 +134,11 @@ footer div {
     margin-bottom: -3%;
 }
 
+#gba-img {
+    width: 25%;
+    margin-bottom: -6%;
+}
+
 .inner-flex {
     display: flex;
     justify-content: center;
