@@ -97,6 +97,8 @@ function updateDpad(event){
     let y = -(event.touches[0].clientY - dpadRect.top) + (dpad.clientHeight / 2);
     x /= dpad.clientWidth / 2;
     y /= dpad.clientHeight / 2;
+    
+    console.log(x, y);
 
     if(x > -DPAD_DEADZONE && x < DPAD_DEADZONE)
         x = 0;
