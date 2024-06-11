@@ -5,8 +5,6 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="icon" href="img/icon.png">
-    <link rel="manifest" href="manifest.json">
-    <script src="sw.js"></script>
     <script src="actions.js"></script>
     <link id="linkCSS" rel="stylesheet" href="style/dmg.css">
 </head>
@@ -33,12 +31,6 @@
     </script>
 
     <script src="emulator.js"></script>
-
-    <script>
-        if('serviceWorker' in navigator) {
-          navigator.serviceWorker.register('./sw.js');
-        }
-    </script>
 </body>
 
 </html>
