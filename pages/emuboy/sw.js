@@ -20,8 +20,8 @@ self.addEventListener('install', event => {
         '/img/megaduck-overlay.png',
       
         '/style/dmg.css',
-        'style/cgb.css',
-        'style/megaduck.css',
+        '/style/cgb.css',
+        '/style/megaduck.css',
 
         '/emulator.html',
         '/actions.js',
