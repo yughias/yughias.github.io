@@ -6,8 +6,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="icon" href="img/icon.png">
     <link rel="manifest" href="manifest.json">
-    <script src="actions.js"></script>
     <script src="sw.js"></script>
+    <script src="actions.js"></script>
     <link id="linkCSS" rel="stylesheet" href="style/dmg.css">
 </head>
 
@@ -34,14 +34,10 @@
 
     <script src="emulator.js"></script>
 
-    <script async>
-    window.onload = () => {
-    'use strict'; 
-    if ('serviceWorker' in navigator) {
-    navigator.serviceWorker
-    .register('./service-worker.js');
-    }
-    }
+    <script>
+        if('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('/sw.js', { scope: '/' });
+        }
     </script>
 </body>
 
