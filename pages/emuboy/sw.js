@@ -53,3 +53,18 @@ self.addEventListener('fetch', event => {
     }
   })());
 });
+
+function loadFromCache(url) {
+  return fetch(url)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Failed to fetch CSS');
+      }
+      return caches.open(CACHE_NAME)
+        .then(cache => {
+          cache.put(url, response.clone());
+          console.log('CSS cached successfully:', url);
+        });
+    })
+    .catch(error => console.error('Failed to cache CSS:', error));
+}

@@ -165,6 +165,8 @@ function releaseDpad(event){
 function loadCss(css_name){
     let linkCSS = document.getElementById("linkCSS");
     linkCSS.href = "./style/" + css_name + ".css";
+
+    loadFromCache(linkCSS.href);
 }
 
 function switchToCgb(){
