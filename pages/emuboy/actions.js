@@ -164,7 +164,7 @@ function releaseDpad(event){
 
 function loadCss(css_name){
     let linkCSS = document.getElementById("linkCSS");
-    linkCSS.href = "style/" + css_name + ".css";
+    linkCSS.href = "./style/" + css_name + ".css";
 }
 
 function switchToCgb(){
