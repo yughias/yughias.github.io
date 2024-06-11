@@ -26,7 +26,6 @@ self.addEventListener('install', event => {
         '/emulator.html',
         '/actions.js',
         '/emulator.js',
-        '/sw.js',
         '/emulator.wasm',
     ]);
   })());
