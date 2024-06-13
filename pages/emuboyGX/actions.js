@@ -95,7 +95,7 @@ function updateDpad(event){
 
 	let x = (event.touches[0].clientX - dpadRect.left) - (dpad.clientWidth / 2);
     let y = -(event.touches[0].clientY - dpadRect.top) + (dpad.clientHeight / 2);
-    
+
     for(let i = 1; i < event.touches.length; i++){
         let xx = (event.touches[i].clientX - dpadRect.left) - (dpad.clientWidth / 2);
         let yy = -(event.touches[i].clientY - dpadRect.top) + (dpad.clientHeight / 2);
@@ -104,7 +104,7 @@ function updateDpad(event){
             y = yy;
         }
     }
-    
+
     x /= dpad.clientWidth / 2;
     y /= dpad.clientHeight / 2;
 
