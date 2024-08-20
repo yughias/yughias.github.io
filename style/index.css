@@ -139,6 +139,12 @@ footer div {
     margin-bottom: -6%;
 }
 
+#pv1000-img {
+    width: 55%;
+    margin-top: 1%;
+    margin-bottom: -4%;
+}
+
 .inner-flex {
     display: flex;
     justify-content: center;
