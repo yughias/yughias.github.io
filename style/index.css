@@ -21,6 +21,14 @@ footer div {
 }
 
 
+table {
+    margin: auto;
+}
+
+td {
+    padding-left: 20pt;
+    padding-right: 20pt;
+}
 
 .title {
     font-family: monospace;
@@ -36,7 +44,7 @@ footer div {
     align-items: stretch;
     justify-content: center;
     flex-flow: row wrap;
-    margin: 5% 2% 2% 2%;
+    margin: 2% 2% 2% 2%;
 }
 
 .slide {
@@ -87,7 +95,7 @@ footer div {
     margin-bottom: 5%;
 }
 
-.github-profile {
+.link-profile {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -95,14 +103,14 @@ footer div {
 
 /* phone */
 @media (max-aspect-ratio: 1/1) {
-    .github-profile img {
+    .link-profile img {
         width: 5vh;
     }    
 }
 
 /* laptop */
 @media (min-aspect-ratio: 1/1) {
-    .github-profile img {
+    .link-profile img {
         width: 4vw;
     }    
 }
