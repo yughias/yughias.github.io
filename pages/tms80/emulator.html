@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <script src="actions.js"></script>
+</head>
+
+<body>
+    <div id="instructions">
+        <ul>
+            <li>Z: Button 1</li>
+            <li>X: Button 2</li>
+            <li>F1: Pause Button (Master System)</li>
+            <li>Return: Start Button (Game Gear)</li>
+        </ul>
+    </div>
+
+    <img id="load_button" src="img/logo.png" onclick="loadGame()">
+
+    <div id="game_scene">
+        <canvas id="canvas"></canvas>
+    </div>
+
+    <script type='text/javascript'>
+        var Module = {
+            canvas: (function() { return document.getElementById('canvas'); })()
+        };
+    </script>
+    <script src="emulator.js"></script>
+</body>
+
+</html>
