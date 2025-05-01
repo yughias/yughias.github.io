@@ -47,21 +47,22 @@ function init(){
 function loadGame(){
     let input = document.createElement('input');
     input.type = "file";
-    input.accept = [".gba"];
+    input.accept = [".gba", ".zip"];
     input.onchange = _ => {
             let file = input.files[0];
+            let filename = file.name
             let reader = new FileReader();
 
             reader.onload = function (e) {
                 let arrayBuffer = e.target.result;
                 let uint8Array = new Uint8Array(arrayBuffer);
                 
-                let fileInfo = FS.analyzePath("/rom.gba");
+                let fileInfo = FS.analyzePath("/" + filename);
                 if(fileInfo.exists)
-                    FS.unlink("/rom.gba");
-                FS.createDataFile("/", "rom.gba", uint8Array, true, true);
+                    FS.unlink("/" + filename);
+                FS.createDataFile("/", filename, uint8Array, true, true);
         
-                callMain(["rom.gba"]);
+                callMain([filename]);
                 let cartridge = document.getElementsByClassName("cartridge")[0];
                 let gba = document.getElementById("gba");
                 cartridge.style.display = "none";
