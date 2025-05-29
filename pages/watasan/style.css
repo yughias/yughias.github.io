@@ -1,0 +1,48 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+#instructions {
+    margin: 5px;
+    padding: 20px;
+    width: fit-content;
+    border: 1px solid black;
+    background-color:blanchedalmond;
+}
+
+#canvas {
+    z-index: -1;
+    border: 1px solid black;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(3);
+    image-rendering: pixelated;
+}
+
+#load_button {
+    position: fixed;
+
+    top: 50vh;
+    left: 50vw;
+
+    transform: translate(-50%, -50%);
+
+    cursor: pointer;
+    width: 30vmin;
+    height: 30vmin;
+
+    background-image: url(img/console.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+
+    transition-property: width, height;
+    transition-duration: 1s;
+}
+
+#load_button:hover {
+    width: 50vmin;
+    height: 50vmin;
+}
