@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <script src="actions.js"></script>
+</head>
+
+<body>
+    <div id="load_button" src="img/console.png" onclick="loadGame()"></div>
+
+    <div id="instructions">
+        <ul>
+            <li>Z: B Button</li>
+            <li>X: A Button</li>
+            <li>RIGHT-SHIFT: Select</li>
+            <li>ENTER: Start</li>
+            <li>ARROWS: D-Pad</li>
+        </ul>
+    </div>
+
+    <div id="game_scene" style="display: none;">
+        <canvas id="canvas"></canvas>
+    </div>
+
+    <script type='text/javascript'>
+        var Module = {
+            canvas: (function() { return document.getElementById('canvas'); })()
+        };
+    </script>
+    <script src="emulator.js"></script>
+</body>
+
+</html>
