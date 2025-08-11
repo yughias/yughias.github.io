@@ -12,7 +12,6 @@ let editor;
 let imgs = [];
 let isDragging = false;
 let isCustomShader = false;
-let isCustomShader = false;
 
 function setup() {
     suppressConsoleWarnings();
