@@ -1,6 +1,5 @@
 
-let mandelbrotFrag = `
-#ifdef GL_ES
+let mandelbrotFrag = `#ifdef GL_ES
 precision mediump float;
 #endif
 
@@ -19,6 +18,8 @@ uniform vec2 pmouse;
 uniform vec2 resolution;
 // elapsed time
 uniform float time;
+// is mouse pressed?
+uniform bool mouseIsPressed; 
 
 
 const int MAX_ITERATION = 256;
@@ -64,16 +65,25 @@ void main() {
     if(m.y - ZOOM_Y - ZOOM_RADIUS < 0.0)
         ZOOM_Y *= -1.0;
     
-    float d = distance(vec2(m.x, m.y - ZOOM_Y), uv);
+    
+    float center_y = mouseIsPressed ? 0.0 : ZOOM_Y;
+    float radius = mouseIsPressed ? 0.5 : ZOOM_RADIUS;
+    float zoom = mouseIsPressed ? ZOOM_VALUE / 5.0 : ZOOM_VALUE;
+    float d = distance(mouseIsPressed ? vec2(0.5) : vec2(m.x, m.y - center_y), uv);
     
     vec2 offset_x = vec2(-2.0, 0.5);
     vec2 offset_y = vec2(-1.2, 1.2);
     
-    if(d < ZOOM_RADIUS){
-        uv.y += ZOOM_Y;      
-        uv.x = m.x - (m.x - uv.x) * ZOOM_VALUE;
-        uv.y = m.y - (m.y - uv.y) * ZOOM_VALUE;  
-        if(d > ZOOM_RADIUS - ZOOM_BORDER){
+    if(d < radius){
+        uv.y += center_y; 
+        if(mouseIsPressed){
+        	uv.x = m.x - (0.5 - uv.x) * zoom;
+        	uv.y = m.y - (0.5 - uv.y) * zoom;
+        } else {
+        	uv.x = m.x - (m.x - uv.x) * zoom;
+        	uv.y = m.y - (m.y - uv.y) * zoom;
+        }
+        if(d > radius - ZOOM_BORDER){
         	float angle = atan(uv.y - m.y, uv.x - m.x);
             gl_FragColor = vec4(border_palette(angle), 1.0);
             return;
@@ -106,8 +116,7 @@ void main() {
     gl_FragColor = vec4(col, 1.0);
 }`
 
-let gradientFrag = `
-#ifdef GL_ES
+let gradientFrag = `#ifdef GL_ES
 precision mediump float;
 #endif
 
@@ -133,9 +142,7 @@ void main() {
     gl_FragColor = vec4(col, 1.0);
 }`
 
-let gearFrag = `
-
-#ifdef GL_ES
+let gearFrag = `#ifdef GL_ES
 precision mediump float;
 #endif
 
@@ -208,8 +215,7 @@ void main() {
     gl_FragColor = vec4(col, 1.0);
 }`
 
-let flagFrag = `
-#ifdef GL_ES
+let flagFrag = `#ifdef GL_ES
 precision mediump float;
 #endif
 
@@ -262,8 +268,7 @@ void main() {
     gl_FragColor = vec4(col, 1.0);
 }`
 
-let voronoiFrag = `
-#ifdef GL_ES
+let voronoiFrag = `#ifdef GL_ES
 precision mediump float;
 #endif
 
@@ -317,5 +322,34 @@ void main() {
     
     vec3 col = vec3(val * LUMA);
     
+    gl_FragColor = vec4(col, 1.0);
+}`
+
+let customFrag = `// THIS SHADER WILL BE AUTOMATICALLY BE SAVED ON YOUR LOCAL STORAGE
+#ifdef GL_ES
+precision mediump float;
+#endif
+
+#define M_PI 3.1415926535897932384626433832795
+
+varying vec2 vTexCoord;
+
+// load images and videos and reference to them using tex0, tex1 etc.
+uniform sampler2D tex0;
+uniform sampler2D tex1;
+// mouse position
+uniform vec2 mouse;
+// previous mouse position
+uniform vec2 pmouse;
+// screen resolution
+uniform vec2 resolution;
+// elapsed time
+uniform float time;
+// is mouse pressed?
+uniform bool mouseIsPressed;
+
+void main() {
+    vec2 uv = vTexCoord;
+    vec3 col = vec3(uv.x, uv.y, 0.0);
     gl_FragColor = vec4(col, 1.0);
 }`
