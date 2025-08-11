@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Shader Playground</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/clike/clike.min.js"></script>
+    <script src="shaders.js"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="left-column">
+        <div id="editor"></div>
+        <div id="examples-bar">
+            <label for="examples"></label>Examples:</label>
+            <select id="examples">
+                <option value="Mandelbrot">Mandelbrot</option>
+                <option value="Gradient">Color Gradient</option>
+                <option value="Moving Gear">Moving Gear</option>
+                <option value="Wavy Italian Flag">Wavy Italian Flag</option>
+                <option value="Voronoi">Voronoi Noise</option>
+            </select>
+        </div>
+        <div id="media-controls">
+            <input type="file" id="media-loader" accept="image/*,video/*" multiple>
+            <div id="media-preview-container"></div>
+        </div>
+        <div id="log"></div>
+    </div>
+    <div id="resizer"></div>
+    <div id="canvas-container"></div>
+
+</body>
+
+</html>
