@@ -139,6 +139,11 @@ td {
     margin-bottom: -5%;
 }
 
+#shader-img {
+    width: 20%;
+    margin-bottom: -5%;
+}
+
 #othello-img {
     width: 50%;
     margin-top: 6%;
