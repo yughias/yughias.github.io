@@ -11,15 +11,15 @@ let theShader;
 let editor;
 let imgs = [];
 let isDragging = false;
+let isCustomShader = false;
 
 function setup() {
     suppressConsoleWarnings();
+    setupCanvas();
     setupEditor();
     setupSelector();
-    setupCanvas();
     setupResizer();
     setupMediaLoader();
-    setInterval(loadCurrentShader, 500);
 }
 
 function suppressConsoleWarnings() {
@@ -32,8 +32,9 @@ function suppressConsoleWarnings() {
 }
 
 function setupSelector(){
-    let selector = document.getElementById('examples-bar');
+    let selector = document.getElementById('shaders-bar');
     selector.addEventListener('change', event => {
+        isCustomShader = false;
         let example = event.target.value;
         switch (example) {
             case 'Mandelbrot':
@@ -50,6 +51,15 @@ function setupSelector(){
                 break;
             case 'Voronoi':
                 editor.setValue(voronoiFrag);
+                break;
+            case 'Custom':
+                let storedShader = localStorage.getItem('customShader');
+                if(storedShader == null){
+                    localStorage.setItem('customShader', customFrag);
+                    storedShader = customFrag;
+                }
+                editor.setValue(storedShader);
+                isCustomShader = true;
                 break;
         }
     })
@@ -70,6 +80,16 @@ function setupEditor() {
         indentUnit: 4,
         theme: 'default'
     });
+
+    let handler_timeout;
+    editor.on('change', () => {
+        clearTimeout(handler_timeout);
+        handler_timeout = setTimeout(loadCurrentShader, 300);
+        if(isCustomShader)
+            localStorage.setItem('customShader', editor.getValue());
+    });
+
+    loadCurrentShader();
 }
 
 function setupResizer() {
@@ -163,6 +183,7 @@ function draw() {
         theShader.setUniform('mouse', [mouseX / width, mouseY / height]);
         theShader.setUniform('pmouse', [pmouseX / width, pmouseY / height]);
         theShader.setUniform('resolution', [width, height]);
+        theShader.setUniform('mouseIsPressed', mouseIsPressed);
 
         drawFullscreenQuad();
     } catch (e) {
