@@ -1,0 +1,39 @@
+.pet {
+    position: fixed;
+    width: var(--w);
+    height: var(--h);
+    background: url("") left center no-repeat;
+    animation: play var(--speed) steps(var(--frames)) infinite,
+        var(--move-type) var(--move-time) linear forwards;
+    transform: scale(var(--scale, 1));
+    image-rendering: pixelated;
+    transform-origin: top left; 
+}
+
+@keyframes play {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: var(--x) 0;
+    }
+}
+
+@keyframes move-left-right {
+    from {
+        transform: translateX(-20vw) scale(var(--scale, 1));
+    }
+    to {
+        transform: translateX(120vw) scale(var(--scale, 1));
+    }
+}
+
+@keyframes move-bottom-up {
+    from {
+        transform: translateY(120vh) scale(var(--scale, 1));
+    }
+    to {
+        transform: translateY(-20vh) scale(var(--scale, 1));
+    }
+}
