@@ -134,6 +134,12 @@ td {
     margin-bottom: -5%;
 }
 
+#obentou-img {
+    width: 37.5%;
+    margin-bottom: -5%;
+    image-rendering: pixelated;
+}
+
 #watasan-img {
     width: 25%;
     margin-bottom: -5%;
